@@ -18,8 +18,6 @@ app.use(session({
 
 var keycloak = new Keycloak({ store: memoryStore });
 
-console.log(keycloak);
-
 app.use(keycloak.middleware());
 
 app.get('/secured', keycloak.protect('realm:myrole'), function (req, res) {
